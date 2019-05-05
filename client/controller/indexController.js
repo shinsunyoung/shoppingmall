@@ -1,8 +1,10 @@
 const indexService = require('../service/indexService');
 
-function index(req, res, next) {
+function index() {
     return indexService.index()
-        .then(input => res.render('index', {title: input}));
+        .then(input => ({
+            title: input
+        }));
 }
 
 module.exports = {

@@ -1,12 +1,11 @@
+const controller = require('../../controller/indexController');
 const assert = require('assert');
-const userRepository = require('../../persistence/userRepository');
 
-describe('userRepository', () => {
-    it('should return 2 elements when call userCategories', function (done) {
-        userRepository.getUsers().then((val) => {
-            assert.strictEqual(val[0].id, 1);
-            assert.strictEqual(val[0].name, '이종호');
+describe('IndexController', function () {
+    it('Index', function (done) {
+        controller.index().then(input => {
+            assert.strictEqual(input.title, 'Express');
             done();
-        })
+        });
     });
 });
