@@ -4,4 +4,5 @@ import me.shinsunyoung.shoppingmall.model.User;
 
 public interface UserService {
     User createUser(User user);
+    User findUser(String email);
 }
