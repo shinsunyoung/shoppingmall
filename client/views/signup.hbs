@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>회원가입</title>
+</head>
+<body>
+    <h2>회원가입</h2>
+    <div id="container">
+        <div>
+            <p>이름 : <input type="text" required v-model="name"></p>
+            <p>이메일 : <input type="email" required v-model="email"></p>
+            <p>비밀번호 : <input type="password" required v-model="password"></p>
+            <p> <input type="button" value="회원가입" v-on:click="onClickSignUp"> </p>
+        </div>
+    </div>
+
+    <script src="/vue/dist/vue.min.js"></script>
+    <script>
+        (function () {
+
+            function ajaxPost(uri, body, callback) {
+                fetch(uri, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(body)
+                }).then(function (res) {
+                    if (res.ok) {
+                        res.json().then(callback);
+                    } else {
+                        console.log("Looks like the response wasn't perfect, got status", res.status);
+                    }
+                }, function (e) {
+                    console.log("Fetch failed!", e);
+                });
+            }
+
+
+            let app = new Vue({
+                el: '#container', //셀렉터
+                data: { //데이터 바인딩
+                    name : "",
+                    email : "",
+                    password : ""
+                },
+                created : function(){},
+                mounted : function(){},
+                watch : { // 프로퍼티 변경시 감지
+                    property_name : function () {
+
+                    }
+                },
+                methods : {
+                    onClickSignUp : function () {
+                        let name = this.name;
+                        let email = this.email;
+                        let password = this.password;
+
+                        ajaxPost('/user/signup', {
+                            name: name,
+                            email: email,
+                            password: password
+                        }, function (response) {
+                            alert(response);
+                        });
+                    }
+                }
+            });
+        })();
+    </script>
+
+</body>
+</html>

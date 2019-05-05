@@ -1,0 +1,20 @@
+{
+  "name": "node-pattern-sample",
+  "description": "",
+  "main": "",
+  "authors": [
+    "jongholee <jhleed3@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/shinsunyoung/shoppingmall",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "^2.6.10"
+  }
+}
