@@ -1,7 +1,17 @@
 spring:
-  h2:
-    console:
-      enabled: true
-#  jpa:
-#    hibernate:
-#      ddl-auto: none
+  profiles:
+    active: real-db # 기본 환경 선택
+
+---
+
+spring:
+  profiles: real-db
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
