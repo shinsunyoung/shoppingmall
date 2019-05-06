@@ -42,24 +42,15 @@
         let app = new Vue({
             el: '#container', //셀렉터
             data: { //데이터 바인딩
-
-                items : [
-                    {
-                        name : "아메리카노",
-                        price : "1500",
-                        category_id : ""
-                    },
-                    {
-                        name : "아이스티",
-                        price : "2500",
-                        category_id : ""
-                    }
-                ]
+                items : []
             },
             created : function(){},
             mounted : function(){
+
+                let _this = this;
                 ajaxGet('/item/all',
                         function (response) {
+                        _this.items = response;
                         });
             },
             watch : { // 프로퍼티 변경시 감지

@@ -9,6 +9,7 @@
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "ejs": "^2.6.1",
     "express": "~4.16.0",
     "express-session": "^1.16.1",
     "hbs": "~4.0.1",
