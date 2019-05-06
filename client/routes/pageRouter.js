@@ -9,4 +9,15 @@ router.get('/signin', function (req, res, next) { // 요청 관련 정보, 요�
     return res.render('signin'); // views 파일 이름
 });
 
+router.get('/logout', function (req, res, next) { // 요청 관련 정보, 요청 보낼 정보, 신경 ㄴㄴ
+
+    req.session.destroy(function (err) {
+        // error !!
+    })
+
+    return res.render('signin'); // views 파일 이름
+});
+
+
+
 module.exports = router;
