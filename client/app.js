@@ -7,6 +7,7 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/userRouter');
 let pageRouter = require('./routes/pageRouter');
+let itemRouter = require('./routes/itemRouter');
 
 let session = require('express-session');
 
@@ -14,7 +15,7 @@ let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
 
 app.use(session({
     secret : '#^&sdlksdj!@!@$',
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
 app.use('/page', pageRouter);
+app.use('/item', itemRouter);
 
 
 // catch 404 and forward to error handler

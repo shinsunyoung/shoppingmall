@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>판매목록</title>
+</head>
+<body>
+<h2>판매목록</h2>
+<div id="container">
+    <div>
+       <table>
+           <tr>
+               <td>이름</td>
+               <td>가격</td>
+           </tr>
+           <tr v-for="item in items">
+               <td>{{item.name}}</td>
+               <td>{{item.price}}</td>
+           </tr>
+       </table>
+    </div>
+</div>
+
+<script src="/vue/dist/vue.min.js"></script>
+<script>
+
+    (function () {
+
+        function ajaxGet(uri, callback) {
+            fetch(uri).then(function (res) {
+                if (res.ok) {
+                    res.json().then(callback);
+                } else {
+                    console.log("Looks like the response wasn't perfect, got status", res.status);
+                }
+            }, function (e) {
+                console.log("Fetch failed!", e);
+            });
+        }
+
+
+        let app = new Vue({
+            el: '#container', //셀렉터
+            data: { //데이터 바인딩
+
+                items : [
+                    {
+                        name : "아메리카노",
+                        price : "1500",
+                        category_id : ""
+                    },
+                    {
+                        name : "아이스티",
+                        price : "2500",
+                        category_id : ""
+                    }
+                ]
+            },
+            created : function(){},
+            mounted : function(){
+                ajaxGet('/item/all',
+                        function (response) {
+                        });
+            },
+            watch : { // 프로퍼티 변경시 감지
+            },
+            methods : {
+                onClickSignIn : function () {
+
+
+                }
+            }
+        });
+    })();
+
+</script>
+</body>
+</html>
