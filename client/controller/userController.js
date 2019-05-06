@@ -24,9 +24,15 @@ module.exports = {
             'http://localhost:8080/user?email='+email,
             function (error, response, body) {
                 if (!error && response.statusCode == 200) {
-                    deferred.resolve(JSON.parse(body));
-                    console.log(body);
+                    if(body === ""){
+                        deferred.resolve(body);
+                    }
+                    else {
+                        deferred.resolve(JSON.parse(body));
+                    }
+
                 }
+
             }
         );
         return deferred.promise;
