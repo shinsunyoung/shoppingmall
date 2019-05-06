@@ -5,6 +5,8 @@ import me.shinsunyoung.shoppingmall.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImp implements UserService {
 
@@ -16,4 +18,14 @@ public class UserServiceImp implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public User findUser(String email) {
+        List<User> all = userRepository.findAll();
+        for (User user: all) {
+            if(user.getEmail().equals(email)){
+                return user;
+            }
+        }
+        return null;
+    }
 }

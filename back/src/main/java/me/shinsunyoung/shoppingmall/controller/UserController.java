@@ -5,9 +5,7 @@ import me.shinsunyoung.shoppingmall.model.SignUpRequest;
 import me.shinsunyoung.shoppingmall.model.User;
 import me.shinsunyoung.shoppingmall.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -26,5 +24,10 @@ public class UserController {
         userService.createUser(user);
 
         return true;
+    }
+
+    @GetMapping("/user")
+    public User getUserByEmail(@RequestParam String email){
+        return userService.findUser(email);
     }
 }

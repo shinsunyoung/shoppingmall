@@ -16,7 +16,6 @@ public class UserControllerTest {
     @Autowired
     private UserController userController;
 
-
     @Test
     public void 테이블에_잘_들어갔나(){
         // given = 값넣기
@@ -28,11 +27,6 @@ public class UserControllerTest {
         a.setEmail("ssy3181@naver.com");
 
         //then
-      assertTrue(userController.signUp(a));
-
+        assertTrue(userController.signUp(a));
     }
-
-
-
-
 }
