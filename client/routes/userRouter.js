@@ -22,6 +22,7 @@ router.post('/signup', function (req, res, next) {
     });
 });
 
+
 router.post('/signin', function (req, res, next) {
     let email = req.body.email; // 사용자가 넘겨준 값
     let password = req.body.password;
