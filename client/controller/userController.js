@@ -13,7 +13,7 @@ module.exports = {
                     console.log(body);
                 }
             }
-        )
-
+        );
+        return deferred.promise;
     }
-}
+};
