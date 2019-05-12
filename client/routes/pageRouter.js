@@ -23,5 +23,10 @@ router.get('/item/list', function (req, res, next) { // 요청 관련 정보, �
     return res.render('item_list'); // views 파일 이름
 });
 
+router.get('/item/detail', function (req, res, next) { // 요청 관련 정보, 요청 보낼 정보, 신경 ㄴㄴ
+    return res.render('item_detail', { name : "아메리카노", price : 1500 }); // views 파일 이름
+});
+
+
 
 module.exports = router;
