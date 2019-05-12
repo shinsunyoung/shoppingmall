@@ -57,7 +57,12 @@
                             email: email,
                             password: password
                         }, function (response) {
-                            alert(response);
+                            if(response === true){
+                                window.location.href = 'http://localhost:3000/page/item/list';
+                            }
+                            else {
+                                alert("로그인 실패!");
+                            }
                         });
                     }
                 }
