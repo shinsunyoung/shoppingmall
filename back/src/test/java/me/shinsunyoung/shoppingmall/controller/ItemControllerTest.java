@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -19,7 +20,7 @@ public class ItemControllerTest {
     private ItemController itemController;
 
     @Test
-    public void 조회_하기() {
+    public void 모든_아이템_조회_하기() {
 
         //when : 메소드를 실행했을 때
         List<Item> find = itemController.findItems();
@@ -29,4 +30,28 @@ public class ItemControllerTest {
         assertEquals(2, find.size() );
 
     }
+
+    @Test
+    public void 특정_아이템_가져오기(){
+
+        // when
+        Item item = itemController.getItemDetail(1L);
+
+        // then
+        assertEquals("아메리카노",item.getName());
+
+    }
+
+    @Test
+    public void 특정_아이템_가져오기_없는_경우_NULL_반환(){
+
+        // when
+        Item item = itemController.getItemDetail(50000L);
+
+        // then
+        assertNull(item);
+
+
+    }
+
 }

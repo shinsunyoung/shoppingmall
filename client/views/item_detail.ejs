@@ -35,12 +35,12 @@
         let app = new Vue({
             el: '#container', //셀렉터
             data: { //데이터 바인딩
-                items : []
+                id : ""
             },
             created : function(){},
             mounted : function(){
                 let _this = this;
-                ajaxGet('/item/all',
+                ajaxGet('/item/detail',
                     function (response) {
                         response.forEach(function (val) {
                             val.link = 'http://localhost:3000/page/item/detail?id=' + val.id
@@ -51,10 +51,7 @@
             watch : { // 프로퍼티 변경시 감지
             },
             methods : {
-                onClickSignIn : function () {
 
-
-                }
             }
         });
     })();

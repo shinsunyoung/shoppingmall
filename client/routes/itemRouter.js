@@ -12,4 +12,6 @@ router.get('/all', function (req, res, next) {
 
 });
 
+
+
 module.exports = router;
