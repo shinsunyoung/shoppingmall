@@ -10,11 +10,11 @@
     <div>
        <table>
            <tr>
-               <td>이름</td>
+               <td >이름</td>
                <td>가격</td>
            </tr>
            <tr v-for="item in items">
-               <td>{{item.name}}</td>
+               <td > <a :href="item.link">{{item.name}}</a></td>
                <td>{{item.price}}</td>
            </tr>
        </table>
@@ -46,12 +46,14 @@
             },
             created : function(){},
             mounted : function(){
-
                 let _this = this;
                 ajaxGet('/item/all',
-                        function (response) {
+                    function (response) {
+                        response.forEach(function (val) {
+                            val.link = 'http://localhost:3000/page/item/detail?id=' + val.id
+                        })
                         _this.items = response;
-                        });
+                    })
             },
             watch : { // 프로퍼티 변경시 감지
             },

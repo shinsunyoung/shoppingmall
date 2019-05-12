@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ItemService {
@@ -25,4 +26,11 @@ public class ItemService {
         return select;
     }
 
+    public Item getItemByid(Long id){
+        Optional<Item> item = itemRepository.findById(id);
+        if(item.isPresent()){
+            return item.get();
+        }
+        return null;
+    }
 }
