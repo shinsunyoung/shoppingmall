@@ -26,7 +26,4 @@ public class ItemController {
         return itemService.getItemByid(id);
     }
 
-    //
-    //     'http://localhost:8080/item/detail?id='+id,
-
 }
