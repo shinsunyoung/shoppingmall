@@ -25,5 +25,4 @@ public class ItemController {
     public Item getItemDetail(@RequestParam Long id){
         return itemService.getItemByid(id);
     }
-
 }
