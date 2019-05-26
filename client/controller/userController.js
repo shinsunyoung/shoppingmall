@@ -6,15 +6,13 @@ const requester = require('../common/util/requester');
 module.exports = {
     signUp : function (command) {
         let deferred = Q.defer();
-        request.post(
-            config.api.uri + '/user/signup',
-            { json: command },
-            function (error, response, body) {
-                if (!error && response.statusCode === 200) {
-                    deferred.resolve(body);
-                }
+        requester.post({
+            uri :  '/user/signup',
+            data : command,
+            successCallback : function (error, response, body) {
+                deferred.resolve(body);
             }
-        );
+        });
         return deferred.promise;
     },
 

@@ -16,3 +16,23 @@ module.exports.get = function (param) {
         }
     );
 }
+
+
+module.exports.post = function (param) {
+    let uri = config.api.uri + param.uri;
+    let json = { json: param.data };
+    let successCallback = param.successCallback || function () {
+        console.log('success callback is not defined');
+    };
+
+    request.post(
+        uri,
+        json,
+        function (error, response, body) {
+            if (!error && response.statusCode === 200) {
+                successCallback(error, response, body);
+            }
+        }
+    );
+}
+
