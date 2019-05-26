@@ -1,12 +1,6 @@
-var express = require('express');
-var router = express.Router();
-
-let userController = require('../controller/userController');
-
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+const express = require('express');
+const router = express.Router();
+const userController = require('../controller/userController');
 
 router.post('/signup', function (req, res, next) {
     let email = req.body.email;

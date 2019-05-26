@@ -1,12 +1,12 @@
 const request = require('request');
 const Q = require('q');
-
+const config = require('../config/config-local');
 
 module.exports = {
     signUp : function (command) {
         let deferred = Q.defer();
         request.post(
-            'http://localhost:8080/user/signup',
+            config.api.uri + '/user/signup',
             { json: command },
             function (error, response, body) {
                 if (!error && response.statusCode == 200) {
@@ -21,7 +21,7 @@ module.exports = {
     getUserByEmail : function (email) {
         let deferred = Q.defer();
         request.get(
-            'http://localhost:8080/user?email='+email,
+            config.api.uri + `/user?email=${email}`,
             function (error, response, body) {
                 if (!error && response.statusCode == 200) {
                     if(body === ""){
