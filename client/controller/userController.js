@@ -9,9 +9,8 @@ module.exports = {
             config.api.uri + '/user/signup',
             { json: command },
             function (error, response, body) {
-                if (!error && response.statusCode == 200) {
+                if (!error && response.statusCode === 200) {
                     deferred.resolve(body);
-                    console.log(body);
                 }
             }
         );
@@ -23,7 +22,7 @@ module.exports = {
         request.get(
             config.api.uri + `/user?email=${email}`,
             function (error, response, body) {
-                if (!error && response.statusCode == 200) {
+                if (!error && response.statusCode === 200) {
                     if(body === ""){
                         deferred.resolve(body);
                     }
