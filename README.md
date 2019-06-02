@@ -15,11 +15,8 @@ Database	Maria DB , aws(RDS), JPA
 - Gradle
 
 ### 기능
-![1](https://user-images.githubusercontent.com/42836576/58707469-03c2d280-83f0-11e9-993c-df65f665a943.PNG)
-- 회원가입이 가능하다.
-
-![2](https://user-images.githubusercontent.com/42836576/58707517-2b199f80-83f0-11e9-93fa-1a34465489d3.PNG)
-- 회원가입한 정보를 바탕으로 로그인이 가능하다. 로그아웃도 가능하다.
-
-![3](https://user-images.githubusercontent.com/42836576/58707715-a8451480-83f0-11e9-88fd-bacb62f296bb.PNG)
-- 현재 '판매중' 상태인 아이템 리스트를 보여준다.
+- 회원가입
+- 로그인(회원가입한 정보)
+- 로그아웃
+- 현재 '판매중' 상태인 아이템 리스트
+- 상세 페이지
