@@ -1,9 +1,6 @@
 # Shoppingmall project
 쇼핑몰에 필요한 간단한 기능 구현
 
-## 프로젝트 목적
-이 프로젝트는 *3 tier 구조 경험*과 *깃허브 이슈-pr 적응*을 목적으로 제작한 프로젝트입니다.
-
 ### 사용 기술
 Frontend	Vue.js, ejs
 Backend	SpringBoot, NodeJS
